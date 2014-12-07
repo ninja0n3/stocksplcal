@@ -3,8 +3,94 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Stocks Profit/Loss Calculator</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:900italic,900,400italic,400' rel='stylesheet' type='text/css'>
+    <link href="assets/stylesheets/base.min.css" type="text/css" rel="stylesheet">
+    <link href="assets/stylesheets/jquery-ui/jquery-ui.min.css" type="text/css" rel="stylesheet">
+    <link href="assets/stylesheets/jquery-ui/jquery-ui.theme.min.css" type="text/css" rel="stylesheet">
+    <script src="assets/javascript/plugins/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="assets/javascript/plugins/jquery.cookie.js" type="text/javascript"></script>
+    <script src="assets/javascript/plugins/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="assets/javascript/plugins/jquery.tidesdk-localstorage.js" type="text/javascript"></script>
+    <script src="assets/javascript/functions.js" type="text/javascript"></script>
+    <script src="assets/javascript/base.js" type="text/javascript"></script>
+
 </head>
 <body>
+
+<div id="wrapper">
+    <div id="results">
+        <div class="col profit" title="Exit Price when profit has been reached"><span id="profit_result_denom">Sell</span> @ $ <span id="profit_result">--</span></div>
+        <div class="col loss" title="Exit Price when loss tolerance has been reached"><span id="loss_result_denom">Sell</span>  @ $ <span id="loss_result">--</span></div>
+    </div>
+    <div>
+        <div id="fields">
+            <div id="type_buttons">
+                <div class="button active" data-value="0" title="Take a Long position">Long</div>
+                <div class="button" data-value="1"  title="Take a Short position">Short</div>
+            </div>
+            <div>
+                <input id="c_entry" type="text" placeholder="Entry Price"  title="Entry price for this position">
+            </div>
+            <div>
+                <input id="c_position" type="text" placeholder="Position Size"  title="Your position size">
+            </div>
+            <div>
+                <input id="c_tol" type="text" placeholder="Loss Tolerance"  title="Loss tolerance for this position">
+            </div>
+            <div id="tol_buttons">
+                <div class="button active" data-value="0" title="Tolerance as a percentage">%</div>
+                <div class="button" data-value="1" title="Tolerance as a total $ amount">$</div>
+                <div class="button" data-value="2" title="Tolerance as a $ amount per share">$/sh</div>
+            </div>
+            <div>
+                <input id="c_profit" type="text" placeholder="Desired Profit" title="Desired profit to reach">
+            </div>
+            <div id="prof_buttons">
+                <div class="button active" data-value="0" title="Profit as a percentage">%</div>
+                <div class="button" data-value="1" title="Profit as a total $ amount">$</div>
+                <div class="button" data-value="2" title="Profit as a $ amount per share">$/sh</div>
+            </div>
+        </div>
+    </div>
+    <div id="values">
+        <div class="section border">
+            <div class="field">
+                <div class="col">Position Value @ Entry:</div>
+                <div class="col half">$ <span id="entry_value">100000.0000</span></div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="section border">
+            <div class="field">
+                <div class="col">Position Value @ Loss:</div>
+                <div class="col half loss">$ <span id="loss_exit_price" class="loss">100000.0000</span></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="field">
+                <div class="col">Expected Loss:</div>
+                <div class="col half loss">$ <span id="loss_amount" class="loss">100000.0000</span></div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="section border">
+            <div class="field">
+                <div class="col">Position Value @ Profit:</div>
+                <div class="col half profit">$ <span id="profit_exit_price" class="profit">100000.0000</span></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="field">
+                <div class="col">Expected Profit:</div>
+                <div class="col half profit">$ <span id="profit_amount" class="profit">100000.0000</span></div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div id="comm_buttons">
+            <div class="button active" data-value="0">Without Comm.</div>
+            <div class="button" data-value="1">With Comm.</div>
+        </div>
+    </div>
+</div>
+
 
 </body>
 </html>

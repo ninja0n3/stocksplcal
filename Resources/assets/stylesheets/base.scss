@@ -1,0 +1,161 @@
+body {
+  font-family: Roboto;
+  background: url("../images/bg/low_contrast_linen.png") repeat;
+  padding:0;
+  margin:0;
+}
+
+html {
+  padding:0;
+  margin:0;
+}
+
+@mixin button_set($w, $count) {
+  width: $w;
+  $h:25px;
+  height: $h;
+
+  margin-bottom: 5px;
+
+  background: #cccccc;
+
+  border: solid thin rgb(169,169,169);
+
+  font-size:14px;
+
+  .button {
+    width: $w/$count;
+    height: 100%;
+    line-height: $h;
+    float:left;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    &.border {
+      border-right:solid thin #555555;
+    }
+
+    &.active {
+      background: #94C93D;
+    }
+
+  }
+
+}
+
+#wrapper {
+
+  background: rgba(255,255,255,0.95);
+  border: solid thin #363636;
+
+  width: 440px;
+  height: 550px;
+  margin: 25px 25px 25px 25px;
+
+  .profit {
+    color: green;
+  }
+
+  .loss {
+    color: red;
+
+  }
+
+  #results {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: solid thin #aaaaaa;
+    margin-bottom: 10px;
+
+    .col {
+      display: inline-block;
+      width:49%;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+
+    }
+
+  }
+
+  #fields {
+    width:150px;
+    float: left;
+    margin-left: 10px;
+
+    #type_buttons {
+      @include button_set(150px,2);
+    }
+
+    #tol_buttons, #prof_buttons {
+      @include button_set(150px,3);
+    }
+
+
+    input {
+      padding: 0 5px 0 5px;
+      height:35px;
+      line-height: 35px;
+      width: 140px;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+  }
+
+  #values {
+    width:250px;
+    margin-right: 10px;
+    float: right;
+    font-size: 13px;
+
+    .section {
+
+      margin-bottom: 5px;
+      padding-bottom: 5px;
+      clear: both;
+
+      &.border {
+        border-bottom: solid thin #363636;
+      }
+
+      .title {
+
+      }
+
+      .field {
+
+        .col {
+          float: left;
+          width: 150px;
+          height:25px;
+          line-height: 25px;
+
+          &.half {
+            width: 100px;
+            font-weight: bold;
+          }
+        }
+
+        .clearfix {
+          clear:both;
+        }
+
+
+      }
+
+
+
+    }
+
+    #comm_buttons {
+      @include button_set(240px,2);
+    }
+
+  }
+
+
+
+}
