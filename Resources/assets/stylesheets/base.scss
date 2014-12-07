@@ -1,3 +1,6 @@
+$wd: 440px;
+$wh: 400px;
+
 body {
   font-family: Arial, sans-serif;
   background: url("../images/bg/low_contrast_linen.png") repeat;
@@ -47,12 +50,19 @@ html {
 
 #wrapper {
 
+  position:absolute;
+  margin-top: auto;
+  margin-bottom: auto;
+  top:0; bottom:0;
+  left:50%;
+  margin-left: - $wd/2;
   background: rgba(255,255,255,0.95);
   border: solid thin #363636;
 
-  width: 440px;
-  height: 400px;
-  margin: 25px 25px 25px 25px;
+
+  width: $wd;
+  height: $wh;
+  //margin: 25px 25px 25px 25px;
 
   .profit {
     color: green;
@@ -159,13 +169,14 @@ html {
   }
 
   #copy {
+    position: relative;
     width:100%;
     text-align: center;
     clear: both;
     margin-top: 25px;
     padding-top: 15px;
 
-    font-size: 14px;
+    font-size: 12px;
 
     div {
       height: 20px;
@@ -173,8 +184,152 @@ html {
 
     }
 
+    .left {
+      position: absolute;
+      top:25px;
+      left: 20px;
+      height: 100%;
+      line-height: 100%;
+      cursor: pointer;
+    }
+
+    .right {
+      position: absolute;
+      top:25px;
+      right: 20px;
+      height: 100%;
+      line-height: 100%;
+      cursor: pointer;
+    }
+
   }
 
 
 }
 
+@mixin info_page(){
+  position: absolute;
+
+  width: $wd;
+  height: $wh;
+
+  left:50%;
+  margin-left:- $wd/2;
+
+  top: - $wh - 20px;
+  bottom:0;
+
+  background: rgba(255,255,255,0.85);
+  border: solid thin #363636;
+
+  .title {
+    margin-left: 20px;
+    margin-top:20px;
+    margin-bottom: 15px;
+
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  #max_comm_buttons{
+    margin-left:20px;
+    @include button_set(150px, 2);
+  }
+
+
+
+  .field {
+    margin-left:20px;
+    margin-bottom: 5px;
+
+    .label {
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 20px;
+      color:#555555;
+    }
+
+    input {
+      padding: 0 5px 0 5px;
+      height:25px;
+      line-height: 25px;
+      width: 200px;
+      font-size: 16px;
+      margin-bottom: 5px;
+      font-family: Arial, sans-serif;
+    }
+
+  }
+
+}
+
+#settings {
+  @include info_page;
+
+  #settings_save_button {
+    position:absolute;
+    left:20px;
+    bottom:15px;
+
+    @include button_set(150px, 1);
+
+    .button {
+      &:hover{
+        background: #a3de43;
+      }
+    }
+  }
+
+}
+
+#about {
+  @include info_page;
+
+  font-size: 12px;
+
+  .line {
+    margin-left: 15px;
+    line-height: 25px;
+    text-align: justify;
+
+    .label {
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 20px;
+      color:#555555;
+    }
+
+    p {
+      line-height: 13px;
+      font-size: 12px;
+    }
+
+    a {
+      font-size: 12px;
+    }
+
+  }
+
+  .f_right {
+    float:right;
+    margin-top:-10px;
+    margin-right: 5px;
+    margin-left: 10px;
+  }
+
+  #about_close {
+    position:absolute;
+    left:20px;
+    bottom:15px;
+
+    @include button_set(100px, 1);
+
+    .button {
+      &:hover{
+        background: #a3de43;
+      }
+    }
+  }
+
+
+}

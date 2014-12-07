@@ -11,6 +11,7 @@
         // Write
         else if( arguments.length == 2){
 
+            console.log(value);
             if (value == "del")
                 localStorage.removeItem("key");
             else

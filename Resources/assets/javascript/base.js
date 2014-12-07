@@ -29,6 +29,23 @@ $(document).ready(function(){
         else if(parent == "comm_buttons"){
             $.locSto("comm_type", $(this).attr("data-value"))
         }
+        else if(parent == "max_comm_buttons"){
+            $.locSto("max_comm_type", $(this).attr("data-value"))
+        }
+        else if(parent == "settings_save_button"){
+            $.locSto("comm_pt", $("#comm_per_trade").val());
+
+            $.locSto("comm_ps", $("#comm_per_share").val());
+
+            $.locSto("max_comm", $("#max_comm").val());
+
+            $.locSto("max_comm_type", $("#max_comm_buttons").find(".active").first().attr("data-value"));
+            TweenMax.to($("#settings"),0.75, {css:{top:$("#settings").height()*-1 -20}});
+        }
+        else if(parent == "about_close"){
+
+            TweenMax.to($("#about"),0.75, {css:{top:$("#about").height()*-1 -20}});
+        }
 
         renderPL();
     });
@@ -37,13 +54,28 @@ $(document).ready(function(){
        renderPL();
     });
 
+    $("#copy").find(".right").click(function(){
+        offset = $("#wrapper").offset();
+        console.log(offset); //debug
+        TweenMax.to($("#settings"),0.75, {css:{top:offset.top}});
+        //css:{top:0,marginTop:'auto',marginBottom:'auto'}
+
+    });
+
+    $("#copy").find(".left").click(function(){
+        offset = $("#wrapper").offset();
+        console.log(offset); //debug
+        TweenMax.to($("#about"),0.75, {css:{top:offset.top}});
+        //css:{top:0,marginTop:'auto',marginBottom:'auto'}
+    });
+
 });
 
 $(function() {
     $( document ).tooltip({
         show: {
             //effect: "slideDown",
-            delay: 500
+            delay: 1000
         },
         position: { my: "left+15 center", at: "right center" }
     });

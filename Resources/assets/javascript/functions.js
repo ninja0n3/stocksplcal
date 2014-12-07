@@ -12,7 +12,7 @@ function getSettings() {
         comm_ps: "0.000",
         comm_pt: "0.00",
         max_comm: "0.000",
-        max_comm_type: "p",
+        max_comm_type: "0",
         comm_type: "1"
     };
 
@@ -45,12 +45,39 @@ function getSettings() {
 
     toggleButton("prof_buttons",prof_type);
 
-    // Profit Type
+    // Commission Type
     comm_type = defaults.comm_type;
     if($.locSto("comm_type") != null )
         comm_type = $.locSto("comm_type");
 
     toggleButton("comm_buttons",comm_type);
+
+    // Commission Settings
+    max_comm_type = defaults.max_comm_type;
+    if($.locSto("max_comm_type") != null )
+        comm_type = $.locSto("max_comm_type");
+
+    toggleButton("max_comm_buttons",max_comm_type);
+
+    mxc = defaults.max_comm;
+    if($.locSto("max_comm") != null  && $.locSto("max_comm") != ""){
+        mxc = parseFloat($.locSto("max_comm"));
+        console.log("MXC: "+mxc); //debug
+        $("#max_comm").val(mxc.toFixed(4));
+    }
+
+    cps = defaults.comm_ps;
+    if($.locSto("comm_ps") != null && $.locSto("comm_ps") != ""){
+        cps = parseFloat($.locSto("comm_ps"));
+        $("#comm_per_share").val(cps.toFixed(4));
+    }
+
+    cpt = defaults.comm_pt;
+    if($.locSto("comm_pt") != null  && $.locSto("comm_pt") != "" ){
+        cpt = parseFloat($.locSto("comm_pt"));
+        $("#comm_per_trade").val(cpt.toFixed(4));
+    }
+
 
 }
 
@@ -78,16 +105,16 @@ function calculatePL(){
     cpt=0.00;
     max_comm = 0.0;
     max_comm_type = "p";
-    if($.locSto("comm_ps") != null)
+    if($.locSto("comm_ps") != null && $.locSto("comm_ps") != "")
         cps = parseFloat($.locSto("comm_ps"));
 
-    if($.locSto("comm_pt") != null)
+    if($.locSto("comm_pt") != null && $.locSto("comm_pt") != "")
         cpt = parseFloat($.locSto("comm_pt"));
 
-    if($.locSto("max_comm") != null)
+    if($.locSto("max_comm") != null && $.locSto("max_comm") != "")
         max_comm = parseFloat($.locSto("max_comm"));
 
-    if($.locSto("max_comm_type") != null)
+    if($.locSto("max_comm_type") != null && $.locSto("max_comm_type") != "")
         max_comm_type = $.locSto("max_comm_type");
 
 
@@ -169,7 +196,7 @@ function renderPL(){
     console.log("render profit & loss");
     flag = true;
 
-    $("input").each(function(){
+    $("#wrapper").find("input").each(function(){
 
         v = $(this).val();
 
@@ -225,7 +252,7 @@ function calculateCommission(value, type, max, ps, cps, cpt){
     // Entry commission
     mc = 0.00;
     switch (type){
-        case 'p': mc= value * max/100;
+        case '0': mc= value * max/100;
             break;
         default: mc = max;
     }

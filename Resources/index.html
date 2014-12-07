@@ -12,6 +12,7 @@
     <script src="/assets/javascript/plugins/jquery.cookie.js" type="text/javascript"></script>
     <script src="/assets/javascript/plugins/jquery-ui.min.js" type="text/javascript"></script>
     <script src="/assets/javascript/plugins/jquery.tidesdk-localstorage.js" type="text/javascript"></script>
+    <script src="/assets/javascript/plugins/greensock/TweenMax.min.js"></script>
     <script src="/assets/javascript/functions.js" type="text/javascript"></script>
     <script src="/assets/javascript/base.js" type="text/javascript"></script>
 
@@ -89,16 +90,80 @@
             </div>
         </div>
         <div id="comm_buttons">
-            <div class="button active" data-value="0">Without Comm.</div>
-            <div class="button" data-value="1">With Comm.</div>
+            <div class="button active" data-value="0" title="Show P/L without counting commissions">Without Comm.</div>
+            <div class="button" data-value="1" title="Show P/L with commissions">With Comm.</div>
         </div>
     </div>
     <div id="copy">
         <div>&copy;2014 - <a href="http://www.redandgreen.ninja" target="_blank">RedAndGreen.ninja</a> - All Rights Reserved.</div>
         <div>Created by <a href="http://profit.ly/plans?aff=4614" target="_blank">Ninja0n3</a></div>
+        <div class="left" title="About"><span class="ui-icon ui-icon-info"></span></div>
+        <div class="right" title="Settings"><span class="ui-icon ui-icon-gear"></span></div>
     </div>
 </div>
 
+<div id="settings">
+    <div class="title">Settings</div>
+    <div class="field">
+        <div class="label">$ Commission per share:</div>
+        <input type="text" id="comm_per_share" title="Broker commission per share in $" placeholder="Commission per Share">
+    </div>
+    <div class="field">
+        <div class="label">$ Commission per trade:</div>
+        <input type="text" id="comm_per_trade" title="Broker commission per trade in $" placeholder="Commission per Trade">
+    </div>
+    <div class="field">
+        <div class="label">Maximum Commission:</div>
+        <input type="text" id="max_comm" title="Broker Maximum Commission" placeholder="Commission per Trade">
+    </div>
+    <div id="max_comm_buttons">
+        <div class="button active" data-value="0" title="Max commission in %">%</div>
+        <div class="button" data-value="1" title="Max commission in $">$</div>
+    </div>
+
+    <div id="settings_save_button">
+        <div class="button active">Save Settings</div>
+    </div>
+</div>
+
+<div id="about">
+    <div class="title">About Stocks Profit/Loss Calculator</div>
+    <div class="f_right">
+
+        <div>
+            <script src='http://static.profit.ly/static/widget/5/widget.pack.js'></script>
+            <script>
+                var widget = new PROFITLY.Widget({
+                    name: 'Ninja0n3',
+                    trades: 10,
+                    width: 190,
+                    type: 'user',
+                    style: 'tradetable',
+                    affiliate: 4614,
+                    percentage: false,
+                    height: 280
+                });
+            </script>
+        </div>
+        <div style="margin-top:10px; text-align: center;">
+            <a href="http://profit.ly/guru/timothysykes?aff=4614" target="_blank">
+                <img src="/assets/images/profitly88x31.png" />
+            </a>
+        </div>
+    </div>
+
+    <div class="line"><span class="label">Version:</span> v1.0.0</div>
+    <div class="line"><span class="label">Author:</span> Jamil Ben Alluch</div>
+    <div class="line"><span class="label">Contact:</span> <a href="mailto:ninja@redandgreen.ninja">ninja@redandgreen.ninja</a></div>
+    <div class="line"><span class="label">Description:</span><p>Stocks Profit/Loss Calculator is a simple calculator to evaluate common stocks entry and exit prices quickly.
+        <p>Its purpose is to provide a rapid overview of a planned exit price by setting a mental stop-loss value for individuals who prefer to do this without relying on a broker platform or the whims of Market Makers.</p>
+        <p>Like this app? How about a small <a href="http://www.redandgreen.ninja/like-my-stuff/" target="_blank">Donation</a>?</p></div>
+
+
+    <div id="about_close">
+        <div class="button active">Close</div>
+    </div>
+</div>
 
 </body>
 </html>

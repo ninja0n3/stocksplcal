@@ -9,11 +9,17 @@ html {
   margin: 0; }
 
 #wrapper {
+  position: absolute;
+  margin-top: auto;
+  margin-bottom: auto;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -220px;
   background: rgba(255, 255, 255, 0.95);
   border: solid thin #363636;
   width: 440px;
-  height: 400px;
-  margin: 25px 25px 25px 25px; }
+  height: 400px; }
   #wrapper .profit {
     color: green; }
   #wrapper .loss {
@@ -117,14 +123,199 @@ html {
         #wrapper #values #comm_buttons .button.active {
           background: #94C93D; }
   #wrapper #copy {
+    position: relative;
     width: 100%;
     text-align: center;
     clear: both;
     margin-top: 25px;
     padding-top: 15px;
-    font-size: 14px; }
+    font-size: 12px; }
     #wrapper #copy div {
       height: 20px;
       line-height: 20px; }
+    #wrapper #copy .left {
+      position: absolute;
+      top: 25px;
+      left: 20px;
+      height: 100%;
+      line-height: 100%;
+      cursor: pointer; }
+    #wrapper #copy .right {
+      position: absolute;
+      top: 25px;
+      right: 20px;
+      height: 100%;
+      line-height: 100%;
+      cursor: pointer; }
+
+#settings {
+  position: absolute;
+  width: 440px;
+  height: 400px;
+  left: 50%;
+  margin-left: -220px;
+  top: -420px;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.85);
+  border: solid thin #363636; }
+  #settings .title {
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold; }
+  #settings #max_comm_buttons {
+    margin-left: 20px;
+    width: 150px;
+    height: 25px;
+    margin-bottom: 5px;
+    background: #cccccc;
+    border: solid thin darkgray;
+    font-size: 14px; }
+    #settings #max_comm_buttons .button {
+      width: 75px;
+      height: 100%;
+      line-height: 25px;
+      float: left;
+      text-align: center;
+      cursor: pointer; }
+      #settings #max_comm_buttons .button.border {
+        border-right: solid thin #555555; }
+      #settings #max_comm_buttons .button.active {
+        background: #94C93D; }
+  #settings .field {
+    margin-left: 20px;
+    margin-bottom: 5px; }
+    #settings .field .label {
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 20px;
+      color: #555555; }
+    #settings .field input {
+      padding: 0 5px 0 5px;
+      height: 25px;
+      line-height: 25px;
+      width: 200px;
+      font-size: 16px;
+      margin-bottom: 5px;
+      font-family: Arial, sans-serif; }
+  #settings #settings_save_button {
+    position: absolute;
+    left: 20px;
+    bottom: 15px;
+    width: 150px;
+    height: 25px;
+    margin-bottom: 5px;
+    background: #cccccc;
+    border: solid thin darkgray;
+    font-size: 14px; }
+    #settings #settings_save_button .button {
+      width: 150px;
+      height: 100%;
+      line-height: 25px;
+      float: left;
+      text-align: center;
+      cursor: pointer; }
+      #settings #settings_save_button .button.border {
+        border-right: solid thin #555555; }
+      #settings #settings_save_button .button.active {
+        background: #94C93D; }
+    #settings #settings_save_button .button:hover {
+      background: #a3de43; }
+
+#about {
+  position: absolute;
+  width: 440px;
+  height: 400px;
+  left: 50%;
+  margin-left: -220px;
+  top: -420px;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.85);
+  border: solid thin #363636;
+  font-size: 12px; }
+  #about .title {
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold; }
+  #about #max_comm_buttons {
+    margin-left: 20px;
+    width: 150px;
+    height: 25px;
+    margin-bottom: 5px;
+    background: #cccccc;
+    border: solid thin darkgray;
+    font-size: 14px; }
+    #about #max_comm_buttons .button {
+      width: 75px;
+      height: 100%;
+      line-height: 25px;
+      float: left;
+      text-align: center;
+      cursor: pointer; }
+      #about #max_comm_buttons .button.border {
+        border-right: solid thin #555555; }
+      #about #max_comm_buttons .button.active {
+        background: #94C93D; }
+  #about .field {
+    margin-left: 20px;
+    margin-bottom: 5px; }
+    #about .field .label {
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 20px;
+      color: #555555; }
+    #about .field input {
+      padding: 0 5px 0 5px;
+      height: 25px;
+      line-height: 25px;
+      width: 200px;
+      font-size: 16px;
+      margin-bottom: 5px;
+      font-family: Arial, sans-serif; }
+  #about .line {
+    margin-left: 15px;
+    line-height: 25px;
+    text-align: justify; }
+    #about .line .label {
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 20px;
+      color: #555555; }
+    #about .line p {
+      line-height: 13px;
+      font-size: 12px; }
+    #about .line a {
+      font-size: 12px; }
+  #about .f_right {
+    float: right;
+    margin-top: -10px;
+    margin-right: 5px;
+    margin-left: 10px; }
+  #about #about_close {
+    position: absolute;
+    left: 20px;
+    bottom: 15px;
+    width: 100px;
+    height: 25px;
+    margin-bottom: 5px;
+    background: #cccccc;
+    border: solid thin darkgray;
+    font-size: 14px; }
+    #about #about_close .button {
+      width: 100px;
+      height: 100%;
+      line-height: 25px;
+      float: left;
+      text-align: center;
+      cursor: pointer; }
+      #about #about_close .button.border {
+        border-right: solid thin #555555; }
+      #about #about_close .button.active {
+        background: #94C93D; }
+    #about #about_close .button:hover {
+      background: #a3de43; }
 
 /*# sourceMappingURL=base.css.map */
