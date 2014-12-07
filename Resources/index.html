@@ -22,65 +22,68 @@
         <div class="col profit" title="Exit Price when profit has been reached"><span id="profit_result_denom">Sell</span> @ $ <span id="profit_result">--</span></div>
         <div class="col loss" title="Exit Price when loss tolerance has been reached"><span id="loss_result_denom">Sell</span>  @ $ <span id="loss_result">--</span></div>
     </div>
-    <div>
-        <div id="fields">
-            <div id="type_buttons">
-                <div class="button active" data-value="0" title="Take a Long position">Long</div>
-                <div class="button" data-value="1"  title="Take a Short position">Short</div>
-            </div>
-            <div>
-                <input id="c_entry" type="text" placeholder="Entry Price"  title="Entry price for this position">
-            </div>
-            <div>
-                <input id="c_position" type="text" placeholder="Position Size"  title="Your position size">
-            </div>
-            <div>
-                <input id="c_tol" type="text" placeholder="Loss Tolerance"  title="Loss tolerance for this position">
-            </div>
-            <div id="tol_buttons">
-                <div class="button active" data-value="0" title="Tolerance as a percentage">%</div>
-                <div class="button" data-value="1" title="Tolerance as a total $ amount">$</div>
-                <div class="button" data-value="2" title="Tolerance as a $ amount per share">$/sh</div>
-            </div>
-            <div>
-                <input id="c_profit" type="text" placeholder="Desired Profit" title="Desired profit to reach">
-            </div>
-            <div id="prof_buttons">
-                <div class="button active" data-value="0" title="Profit as a percentage">%</div>
-                <div class="button" data-value="1" title="Profit as a total $ amount">$</div>
-                <div class="button" data-value="2" title="Profit as a $ amount per share">$/sh</div>
-            </div>
+    <div id="fields">
+        <div id="type_buttons">
+            <div class="button active" data-value="0" title="Take a Long position">Long</div>
+            <div class="button" data-value="1"  title="Take a Short position">Short</div>
+        </div>
+        <div>
+            <input id="c_entry" type="text" placeholder="Entry Price"  title="Entry price for this position">
+        </div>
+        <div>
+            <input id="c_position" type="text" placeholder="Position Size"  title="Your position size">
+        </div>
+        <div>
+            <input id="c_tol" type="text" placeholder="Loss Tolerance"  title="Loss tolerance for this position">
+        </div>
+        <div id="tol_buttons">
+            <div class="button active" data-value="0" title="Tolerance as a percentage">%</div>
+            <div class="button" data-value="1" title="Tolerance as a total $ amount">$</div>
+            <div class="button" data-value="2" title="Tolerance as a $ amount per share">$/sh</div>
+        </div>
+        <div>
+            <input id="c_profit" type="text" placeholder="Desired Profit" title="Desired profit to reach">
+        </div>
+        <div id="prof_buttons">
+            <div class="button active" data-value="0" title="Profit as a percentage">%</div>
+            <div class="button" data-value="1" title="Profit as a total $ amount">$</div>
+            <div class="button" data-value="2" title="Profit as a $ amount per share">$/sh</div>
         </div>
     </div>
     <div id="values">
         <div class="section border">
             <div class="field">
                 <div class="col">Position Value @ Entry:</div>
-                <div class="col half">$ <span id="entry_value">100000.0000</span></div>
+                <div class="col half">$ <span id="entry_value">--</span></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="field">
+                <div class="col">Base Commission:</div>
+                <div class="col half">$ <span id="entry_comm">--</span></div>
                 <div class="clearfix"></div>
             </div>
         </div>
         <div class="section border">
             <div class="field">
                 <div class="col">Position Value @ Loss:</div>
-                <div class="col half loss">$ <span id="loss_exit_price" class="loss">100000.0000</span></div>
+                <div class="col half loss">$ <span id="loss_position_value" class="loss">--</span></div>
                 <div class="clearfix"></div>
             </div>
             <div class="field">
                 <div class="col">Expected Loss:</div>
-                <div class="col half loss">$ <span id="loss_amount" class="loss">100000.0000</span></div>
+                <div class="col half loss">$ <span id="loss_amount" class="loss">--</span></div>
                 <div class="clearfix"></div>
             </div>
         </div>
-        <div class="section border">
+        <div class="section">
             <div class="field">
                 <div class="col">Position Value @ Profit:</div>
-                <div class="col half profit">$ <span id="profit_exit_price" class="profit">100000.0000</span></div>
+                <div class="col half profit">$ <span id="profit_position_value" class="profit">--</span></div>
                 <div class="clearfix"></div>
             </div>
             <div class="field">
                 <div class="col">Expected Profit:</div>
-                <div class="col half profit">$ <span id="profit_amount" class="profit">100000.0000</span></div>
+                <div class="col half profit">$ <span id="profit_amount" class="profit">--</span></div>
                 <div class="clearfix"></div>
             </div>
         </div>
@@ -88,6 +91,10 @@
             <div class="button active" data-value="0">Without Comm.</div>
             <div class="button" data-value="1">With Comm.</div>
         </div>
+    </div>
+    <div id="copy">
+        <div>&copy;2014 - <a href="http://www.redandgreen.ninja">RedAndGreen.ninja</a> - All Rights Reserved.</div>
+        <div>Created by <a href="http://profit.ly/plans?aff=4614">Ninja0n3</a></div>
     </div>
 </div>
 

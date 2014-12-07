@@ -51,7 +51,7 @@ html {
   border: solid thin #363636;
 
   width: 440px;
-  height: 550px;
+  height: 400px;
   margin: 25px 25px 25px 25px;
 
   .profit {
@@ -130,8 +130,9 @@ html {
         .col {
           float: left;
           width: 150px;
-          height:25px;
-          line-height: 25px;
+          $ch: 34.75px;
+          height:$ch;
+          line-height: $ch;
 
           &.half {
             width: 100px;
@@ -156,6 +157,23 @@ html {
 
   }
 
+  #copy {
+    width:100%;
+    text-align: center;
+    clear: both;
+    margin-top: 25px;
+    padding-top: 15px;
+
+    font-size: 14px;
+
+    div {
+      height: 20px;
+      line-height: 20px;
+
+    }
+
+  }
 
 
 }
+

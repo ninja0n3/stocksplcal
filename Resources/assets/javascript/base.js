@@ -23,8 +23,11 @@ $(document).ready(function(){
         else if(parent == "tol_buttons"){
             $.locSto("tol_type", $(this).attr("data-value"))
         }
-        else if(parent == "tol_buttons"){
-            $.locSto("tol_type", $(this).attr("data-value"))
+        else if(parent == "prof_buttons"){
+            $.locSto("prof_type", $(this).attr("data-value"))
+        }
+        else if(parent == "comm_buttons"){
+            $.locSto("comm_type", $(this).attr("data-value"))
         }
 
         renderPL();

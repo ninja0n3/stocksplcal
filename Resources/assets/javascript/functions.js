@@ -12,7 +12,8 @@ function getSettings() {
         comm_ps: "0.000",
         comm_pt: "0.00",
         max_comm: "0.000",
-        max_comm_type: "p"
+        max_comm_type: "p",
+        comm_type: "1"
     };
 
 
@@ -44,6 +45,13 @@ function getSettings() {
 
     toggleButton("prof_buttons",prof_type);
 
+    // Profit Type
+    comm_type = defaults.comm_type;
+    if($.locSto("comm_type") != null )
+        comm_type = $.locSto("comm_type");
+
+    toggleButton("comm_buttons",comm_type);
+
 }
 
 // Toggles the buttons on click event
@@ -66,9 +74,9 @@ function calculatePL(){
     lt_type = $("#tol_buttons").find(".active").first().attr("data-value");
     pr_type = $("#prof_buttons").find(".active").first().attr("data-value");
 
-    cps=0.0035;
+    cps=0.00;
     cpt=0.00;
-    max_comm = 0.5;
+    max_comm = 0.0;
     max_comm_type = "p";
     if($.locSto("comm_ps") != null)
         cps = parseFloat($.locSto("comm_ps"));
@@ -120,7 +128,7 @@ function calculatePL(){
     console.log("lt-type: "+lt_type+" - l val: "+l_val.toFixed(4));
 
     r.loss_total = l_val;
-    r.loss_exit_value = (r.entry_value-l_val);
+    r.loss_exit_value = (r.entry_value-l_val*multiplier);
     r.loss_exit_price = r.loss_exit_value/ps;
 
     r.loss_exit_comm = calculateCommission(r.loss_exit_value, max_comm_type, max_comm, ps, cps, cpt);
@@ -140,7 +148,7 @@ function calculatePL(){
     console.log("pr-type: "+pr_type+" - p val: "+p_val.toFixed(4));
 
     r.profit_total = p_val;
-    r.profit_exit_value = (r.entry_value-p_val);
+    r.profit_exit_value = (r.entry_value+p_val*multiplier);
     r.profit_exit_price = r.profit_exit_value/ps;
 
     r.profit_exit_comm = calculateCommission(r.profit_exit_value, max_comm_type, max_comm, ps, cps, cpt);
@@ -173,6 +181,39 @@ function renderPL(){
 
     if(flag){
         r = calculatePL();
+
+        // Elements
+        p_exit_price = $("#profit_result");
+        l_exit_price = $("#loss_result");
+        pos_value = $("#entry_value");
+        entry_comm = $("#entry_comm");
+        loss_pos_value = $("#loss_position_value");
+        loss_value = $("#loss_amount");
+        profit_pos_value = $("#profit_position_value");
+        profit_value = $("#profit_amount");
+
+        show_comm = $("#comm_buttons").find(".active").attr("data-value");
+
+        p_exit_price.html(r.profit_exit_price.toFixed(4));
+        l_exit_price.html(r.loss_exit_price.toFixed(4));
+        pos_value.html(r.entry_value.toFixed(4));
+        entry_comm.html(r.entry_comm.toFixed(4));
+        loss_pos_value.html(r.loss_exit_value.toFixed(4));
+        profit_pos_value.html(r.profit_exit_value.toFixed(4));
+
+        if(show_comm == "1"){
+            loss_value.html((r.loss_total+r.loss_exit_comm).toFixed(4));
+            profit_value.html((r.profit_total- r.profit_exit_comm).toFixed(4));
+        }
+        else{
+            loss_value.html((r.loss_total).toFixed(4));
+            profit_value.html((r.profit_total).toFixed(4));
+        }
+
+
+
+
+
     }
 
 }

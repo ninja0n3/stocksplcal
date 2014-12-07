@@ -12,7 +12,7 @@ html {
   background: rgba(255, 255, 255, 0.95);
   border: solid thin #363636;
   width: 440px;
-  height: 550px;
+  height: 400px;
   margin: 25px 25px 25px 25px; }
   #wrapper .profit {
     color: green; }
@@ -90,8 +90,8 @@ html {
       #wrapper #values .section .field .col {
         float: left;
         width: 150px;
-        height: 25px;
-        line-height: 25px; }
+        height: 34.75px;
+        line-height: 34.75px; }
         #wrapper #values .section .field .col.half {
           width: 100px;
           font-weight: bold; }
@@ -115,5 +115,15 @@ html {
           border-right: solid thin #555555; }
         #wrapper #values #comm_buttons .button.active {
           background: #94C93D; }
+  #wrapper #copy {
+    width: 100%;
+    text-align: center;
+    clear: both;
+    margin-top: 25px;
+    padding-top: 15px;
+    font-size: 14px; }
+    #wrapper #copy div {
+      height: 20px;
+      line-height: 20px; }
 
 /*# sourceMappingURL=base.css.map */
