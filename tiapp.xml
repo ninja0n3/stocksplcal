@@ -13,12 +13,12 @@
 <id>initial</id>
 <title>StocksPLCalc</title>
 <url>app://index.html</url>
-<width>455</width>
-<max-width>3000</max-width>
-<min-width>455</min-width>
-<height>605</height>
-<max-height>3000</max-height>
-<min-height>600</min-height>
+<width>500</width>
+<max-width>500</max-width>
+<min-width>500</min-width>
+<height>460</height>
+<max-height>460</max-height>
+<min-height>460</min-height>
 <fullscreen>false</fullscreen>
 <resizable>true</resizable>
 <chrome scrollbars="true">true</chrome>
