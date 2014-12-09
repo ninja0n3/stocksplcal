@@ -141,7 +141,7 @@ html {
         .col {
           float: left;
           width: 150px;
-          $ch: 34.75px;
+          $ch: 29.48px;
           height:$ch;
           line-height: $ch;
 
@@ -163,6 +163,10 @@ html {
     }
 
     #comm_buttons {
+      @include button_set(240px,2);
+    }
+
+    #stop_price_buttons {
       @include button_set(240px,2);
     }
 

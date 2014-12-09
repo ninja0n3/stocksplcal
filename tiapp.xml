@@ -3,10 +3,10 @@
 <!-- These values are edited/maintained by TideSDK Developer -->
 <id>com.redandgreeninja.stocksplcalc</id>
 <name>StocksPLCalc</name>
-<version>1.0.6</version>
-<publisher>Jamil Ben Alluch</publisher>
+<version>1.1.0</version>
+<publisher>Jamil</publisher>
 <url>http:///www.redandgreen.ninja</url>
-<icon>app_icon.png</icon>
+<icon>default_app_logo.png</icon>
 <copyright>2014 by RedAndGreen.ninja</copyright>
 <!-- Window Definition - these values can be edited -->
 <window>
@@ -20,7 +20,7 @@
 <max-height>460</max-height>
 <min-height>460</min-height>
 <fullscreen>false</fullscreen>
-<resizable>false</resizable>
+<resizable>true</resizable>
 <chrome scrollbars="true">true</chrome>
 <maximizable>true</maximizable>
 <minimizable>true</minimizable>
