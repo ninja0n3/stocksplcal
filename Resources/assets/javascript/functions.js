@@ -13,7 +13,8 @@ function getSettings() {
         comm_pt: "0.00",
         max_comm: "0.000",
         max_comm_type: "0",
-        comm_type: "1"
+        comm_type: "1",
+        calc_type: "0"
     };
 
 
@@ -62,7 +63,7 @@ function getSettings() {
     mxc = defaults.max_comm;
     if($.locSto("max_comm") != null  && $.locSto("max_comm") != ""){
         mxc = parseFloat($.locSto("max_comm"));
-        console.log("MXC: "+mxc); //debug
+        //console.log("MXC: "+mxc); //debug
         $("#max_comm").val(mxc.toFixed(4));
     }
 
@@ -78,6 +79,19 @@ function getSettings() {
         $("#comm_per_trade").val(cpt.toFixed(4));
     }
 
+    // Stop price
+    calc_type = defaults.calc_type;
+    if($.locSto("calc_type") != null )
+        calc_type = $.locSto("calc_type");
+
+    if(calc_type == "1"){
+        $("#c_tol").attr("placeholder", "Stop Price");
+        $("#tol_buttons").find(".button").removeClass("active");
+        $("#tol_buttons").find("div:nth-of-type(2)").addClass("active");
+        $("#tol_buttons").find("div:nth-of-type(1),div:nth-of-type(3)").hide();
+    }
+
+    toggleButton("stop_price_buttons",calc_type);
 
 }
 
@@ -100,6 +114,7 @@ function calculatePL(){
 
     lt_type = $("#tol_buttons").find(".active").first().attr("data-value");
     pr_type = $("#prof_buttons").find(".active").first().attr("data-value");
+    cl_type = $("#stop_price_buttons").find(".active").first().attr("data-value");
 
     cps=0.00;
     cpt=0.00;
@@ -143,20 +158,34 @@ function calculatePL(){
 
     // Loss Calculation
     l_val = 0.00;
-    if(lt_type == "0"){
-        l_val = r.entry_value*lt/100;
-    }
-    else if(lt_type == "1"){
-        l_val = lt;
-    }
-    else if(lt_type == "2"){
-        l_val = lt*ps;
-    }
-    console.log("lt-type: "+lt_type+" - l val: "+l_val.toFixed(4));
+    console.log("calc type: "+cl_type);
+    if(cl_type == "1"){
+        r.loss_exit_price = lt;
+        r.loss_exit_value = lt*ps;
+        if(multiplier<0)
+            r.loss_total = (r.loss_exit_value-r.entry_value);
+        else
+            r.loss_total = (r.entry_value-r.loss_exit_value);
 
-    r.loss_total = l_val;
-    r.loss_exit_value = (r.entry_value-l_val*multiplier);
-    r.loss_exit_price = r.loss_exit_value/ps;
+        console.log(r.entry_value + " - "+r.loss_exit_value); // debug
+    }
+    else {
+        if(lt_type == "0"){
+            l_val = r.entry_value*lt/100;
+        }
+        else if(lt_type == "1"){
+            l_val = lt;
+        }
+        else if(lt_type == "2"){
+            l_val = lt*ps;
+        }
+        console.log("lt-type: "+lt_type+" - l val: "+l_val.toFixed(4));
+
+        r.loss_total = l_val;
+        r.loss_exit_value = (r.entry_value-l_val*multiplier);
+        r.loss_exit_price = r.loss_exit_value/ps;
+    }
+
 
     r.loss_exit_comm = calculateCommission(r.loss_exit_value, max_comm_type, max_comm, ps, cps, cpt);
 

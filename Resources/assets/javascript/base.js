@@ -46,6 +46,23 @@ $(document).ready(function(){
 
             TweenMax.to($("#about"),0.75, {css:{top:$("#about").height()*-1 -20}});
         }
+        else if(parent == "stop_price_buttons"){
+            val = $("#stop_price_buttons").find(".active").first().attr("data-value")
+            $.locSto("calc_type", val);
+
+            if(val == "1"){
+                $("#c_tol").attr("placeholder", "Stop Price");
+                $("#tol_buttons").find(".button").removeClass("active");
+                $("#tol_buttons").find("div:nth-of-type(2)").addClass("active");
+                $.locSto("tol_type",  $("#tol_buttons").find("div:nth-of-type(2)").attr("data-value"));
+                $("#tol_buttons").find("div:nth-of-type(1),div:nth-of-type(3)").hide();
+            }
+            else {
+                $("#c_tol").attr("placeholder", "Loss Tolerance");
+                $("#tol_buttons").find("div:nth-of-type(1),div:nth-of-type(3)").show();
+            }
+        }
+
 
         renderPL();
     });
