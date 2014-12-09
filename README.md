@@ -3,7 +3,7 @@ Stocks Profit/Loss Calculator
 
 ### Version
 
-1.0.6
+1.1.0
 
 ### Author
 
