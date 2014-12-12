@@ -1,3 +1,5 @@
+v1.1.1 - 2014-12-12 - Clear input on focus
+
 v1.1.0 - 2014-12-08 - Added feature for entering a stop price instead of a loss tolerance
 
 v1.0.6 - 2014-12-08 - Added desktop icon and modified core application settings
