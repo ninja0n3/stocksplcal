@@ -1,3 +1,7 @@
 dist
 .idea
-tmp
+packages/pdf
+packages/screenshots
+packages/win32/bundle/StocksPLCalc
+packages/win32/bundle/*.wxs*
+
