@@ -6,7 +6,7 @@
 <version>1.1.1</version>
 <publisher>Jamil</publisher>
 <url>http:///www.redandgreen.ninja</url>
-<icon>default_app_logo.png</icon>
+<icon>app_icon.png</icon>
 <copyright>2014 by RedAndGreen.ninja</copyright>
 <!-- Window Definition - these values can be edited -->
 <window>
