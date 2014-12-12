@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <title>Stocks Profit/Loss Calculator</title>
     <!--<link href='http://fonts.googleapis.com/css?family=Roboto:900italic,900,400italic,400' rel='stylesheet' type='text/css'>-->
-    <!--<link href="assets/stylesheets/fonts.min.css" type="text/css" rel="stylesheet">-->
-    <link href="assets/stylesheets/base.min.css" type="text/css" rel="stylesheet">
-    <link href="assets/stylesheets/jquery-ui/jquery-ui.min.css" type="text/css" rel="stylesheet">
-    <link href="assets/stylesheets/jquery-ui/jquery-ui.theme.min.css" type="text/css" rel="stylesheet">
-    <script src="assets/javascript/plugins/jquery-2.1.1.min.js" type="text/javascript"></script>
-    <script src="assets/javascript/plugins/jquery.cookie.js" type="text/javascript"></script>
-    <script src="assets/javascript/plugins/jquery-ui.min.js" type="text/javascript"></script>
-    <script src="assets/javascript/plugins/jquery.tidesdk-localstorage.js" type="text/javascript"></script>
-    <script src="assets/javascript/plugins/greensock/TweenMax.min.js"></script>
-    <script src="assets/javascript/functions.js" type="text/javascript"></script>
-    <script src="assets/javascript/base.js" type="text/javascript"></script>
+    <!--<link href="/assets/stylesheets/fonts.min.css" type="text/css" rel="stylesheet">-->
+    <link href="/assets/stylesheets/base.min.css" type="text/css" rel="stylesheet">
+    <link href="/assets/stylesheets/jquery-ui/jquery-ui.min.css" type="text/css" rel="stylesheet">
+    <link href="/assets/stylesheets/jquery-ui/jquery-ui.theme.min.css" type="text/css" rel="stylesheet">
+    <script src="/assets/javascript/plugins/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="/assets/javascript/plugins/jquery.cookie.js" type="text/javascript"></script>
+    <script src="/assets/javascript/plugins/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="/assets/javascript/plugins/jquery.tidesdk-localstorage.js" type="text/javascript"></script>
+    <script src="/assets/javascript/plugins/greensock/TweenMax.min.js"></script>
+    <script src="/assets/javascript/functions.js" type="text/javascript"></script>
+    <script src="/assets/javascript/base.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -30,13 +30,13 @@
             <div class="button" data-value="1"  title="Take a Short position">Short</div>
         </div>
         <div>
-            <input id="c_entry" type="text" placeholder="Entry Price"  title="Entry price for this position">
+            <input id="c_entry" type="text" placeholder="Entry Price" class="base_input"  title="Entry price for this position">
         </div>
         <div>
-            <input id="c_position" type="text" placeholder="Position Size"  title="Your position size">
+            <input id="c_position" type="text" placeholder="Position Size" class="base_input"  title="Your position size">
         </div>
         <div>
-            <input id="c_tol" type="text" placeholder="Loss Tolerance"  title="Loss tolerance for this position">
+            <input id="c_tol" type="text" placeholder="Loss Tolerance" class="base_input"  title="Loss tolerance for this position">
         </div>
         <div id="tol_buttons">
             <div class="button active" data-value="0" title="Tolerance as a percentage">%</div>
@@ -44,7 +44,7 @@
             <div class="button" data-value="2" title="Tolerance as a $ amount per share">$/sh</div>
         </div>
         <div>
-            <input id="c_profit" type="text" placeholder="Desired Profit" title="Desired profit to reach">
+            <input id="c_profit" type="text" placeholder="Desired Profit" class="base_input" title="Desired profit to reach">
         </div>
         <div id="prof_buttons">
             <div class="button active" data-value="0" title="Profit as a percentage">%</div>
@@ -151,12 +151,12 @@
         </div>
         <div style="margin-top:10px; text-align: center;">
             <a href="http://profit.ly/guru/timothysykes?aff=4614" target="_blank">
-                <img src="assets/images/profitly88x31.png" />
+                <img src="/assets/images/profitly88x31.png" />
             </a>
         </div>
     </div>
 
-    <div class="line"><span class="label">Version:</span> v1.1.0</div>
+    <div class="line"><span class="label">Version:</span> v1.1.1</div>
     <div class="line"><span class="label">Author:</span> Jamil Ben Alluch</div>
     <div class="line"><span class="label">Contact:</span> <a href="mailto:ninja@redandgreen.ninja">ninja@redandgreen.ninja</a></div>
     <div class="line"><span class="label">Description:</span><p>Stocks Profit/Loss Calculator is a simple calculator to evaluate common stocks entry and exit prices quickly.
