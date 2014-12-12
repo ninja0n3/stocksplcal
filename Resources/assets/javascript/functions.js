@@ -189,7 +189,6 @@ function calculatePL(){
 
     r.loss_exit_comm = calculateCommission(r.loss_exit_value, max_comm_type, max_comm, ps, cps, cpt);
 
-
     // Profit Calculation
     p_val = 0.00;
     if(pr_type == "0"){
@@ -209,12 +208,7 @@ function calculatePL(){
 
     r.profit_exit_comm = calculateCommission(r.profit_exit_value, max_comm_type, max_comm, ps, cps, cpt);
 
-
-
-    console.log(r);
-
-
-
+    //console.log(r);
 
     return r;
 
@@ -265,10 +259,6 @@ function renderPL(){
             loss_value.html((r.loss_total).toFixed(4));
             profit_value.html((r.profit_total).toFixed(4));
         }
-
-
-
-
 
     }
 
